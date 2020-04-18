@@ -32,13 +32,19 @@
 
                     if ($user == 'auxiliar@gmail.com' && $password == 'auxi')
                     {
-                        require_once 'views/home.php';
+                        require_once 'views/principalViews.php';
                     } else {
                         $errores = "El usuario o contraseña son incorrectos";
                         require_once 'views/indexSession.php';
                     }
                 }
             }
+        }
+
+        public function logout()
+        {
+            session_destroy();
+            header("Location:index.php?controller=Login&action=Login");
         }
     }
 ?>
